@@ -16,7 +16,7 @@ get_localized_message() {
                 sources_os_detected) default_message="检测到您的 Debian 系统版本为： %s";;
                 sources_get_codename_fail) default_message="未能获取 Debian 系统代号。";;
                 sources_foreign_user_skip) default_message="检测到您可能不是中国大陆用户，跳过更换软件源。如果您需要更换软件源，请手动修改 /etc/apt/sources.list 文件。";;
-                sources_china_user_prompt) default_message="检测到您可能是中国大陆用户，为了更快的软件更新速度，您可以选择更换为国内镜像源：\n  1 - 中科大 (USTC)\n  2 - 清华大学 (TUNA)\n  3 - 南京大学 (NJU)\n  4 - 阿里云 (Aliyun)\n  5 - 保持默认源\n请选择 (1-5): ";;
+                sources_china_user_prompt) default_message="检测到您可能是中国大陆用户，为了更快的软件更新速度，您可以选择更换为国内镜像源：\n  1 - 中科大 (USTC, 默认)\n  2 - 清华大学 (TUNA)\n  3 - 南京大学 (NJU)\n  4 - 阿里云 (Aliyun)\n  5 - 保持默认源\n请选择 (1-5, 默认: 1, 30秒超时): ";;
                 sources_invalid_choice) default_message="无效的选择，请重新选择 (1-5)。";;
                 sources_backup_original) default_message="正在备份原始软件源列表...";;
                 sources_backup_success) default_message="原始软件源列表备份成功，备份文件为： %s";;
@@ -37,7 +37,7 @@ get_localized_message() {
                 sources_os_detected) default_message="Detected your Debian system version: %s";;
                 sources_get_codename_fail) default_message="Failed to get Debian system codename.";;
                 sources_foreign_user_skip) default_message="Detected that you might not be a user in mainland China. Skipping software source replacement. If you need to change software sources, please manually modify /etc/apt/sources.list file.";;
-                sources_china_user_prompt) default_message="Detected that you might be a user in mainland China. For faster software update speed, you can choose to replace with a domestic mirror source:\n  1 - USTC (University of Science and Technology of China)\n  2 - Tsinghua University (TUNA)\n  3 - Nanjing University (NJU)\n  4 - Aliyun (Alibaba Cloud)\n  5 - Keep default sources\nPlease choose (1-5): ";;
+                sources_china_user_prompt) default_message="Detected that you might be a user in mainland China. For faster software update speed, you can choose to replace with a domestic mirror source:\n  1 - USTC (University of Science and Technology of China, default)\n  2 - Tsinghua University (TUNA)\n  3 - Nanjing University (NJU)\n  4 - Aliyun (Alibaba Cloud)\n  5 - Keep default sources\nPlease choose (1-5, default: 1, 30s timeout): ";;
                 sources_invalid_choice) default_message="Invalid choice, please choose again (1-5).";;
                 sources_backup_original) default_message="Backing up original software source list...";;
                 sources_backup_success) default_message="Original software source list backup successful, backup file is: %s";;
@@ -80,7 +80,10 @@ fi
 
 # --- 中国大陆用户，提示选择镜像源 ---
 while true; do
-    read -r -p "$(get_localized_message sources_china_user_prompt)" source_choice
+    timeout 30 read -r -p "$(get_localized_message sources_china_user_prompt)" source_choice
+    if [[ -z "$source_choice" ]]; then
+        source_choice="1" # 默认中科大
+    fi
     case "$source_choice" in
         1) mirror_site="ustc"; break ;;
         2) mirror_site="tsinghua"; break ;;
