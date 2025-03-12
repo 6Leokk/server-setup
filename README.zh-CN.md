@@ -7,7 +7,7 @@
 ![Platform](https://img.shields.io/badge/Support-Debian%20|%20Ubuntu%20|%20RHEL%20|%20CentOS-red)
 ![Shell](https://img.shields.io/badge/Shell-Bash%205.0+-green)
 
-![Banner](https://via.placeholder.com/1200x400?text=Server+Setup+Automation+Tool)
+
 
 一站式服务器初始化解决方案，提供模块化配置和快速部署能力，支持主流的Linux发行版。
 
@@ -20,8 +20,8 @@
 | 软件源镜像             | 替换国内软件源加速              | ✅       | ✅       |
 | 系统全量更新           | 更新系统及所有软件包            | ✅       | ✅       |
 | **输入法支持**          |                               |          |          |
-| Fcitx框架+Rime输入法   | 安装配置中文输入法              | ✅       | ❌       |
-| IBus框架+Rime输入法    | 安装配置中文输入法              | ❌       | ✅       |
+| Fcitx框架+Rime输入法   | 安装配置中文（薄荷拼音）输入法      | ✅       | ❌       |
+| IBus框架+Rime输入法    | 安装配置中文（薄荷拼音）输入法    | ❌       | ✅       |
 | **容器环境**            |                               |          |          |
 | Docker引擎安装         | 安装最新版Docker-CE            | ✅       | ✅       |
 | Docker镜像加速         | 配置国内镜像仓库加速            | ✅       | ✅       |
