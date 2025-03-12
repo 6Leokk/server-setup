@@ -45,23 +45,25 @@ sudo bash <(curl -sSL https://raw.githubusercontent.com/6Leokk/server-setup/main
 
 ```bash
 # 下载项目ZIP包并解压
-wget https://github.com/yourname/server-setup/archive/refs/heads/main.zip
+wget https://github.com/6Leokk/server-setup/archive/refs/heads/main.zip
 unzip main.zip && cd server-setup-main
 
 # 授权执行权限
 chmod +x install_*.sh
 
 # 执行对应系统脚本
-sudo ./install_debian.sh  # Debian/Ubuntu
-sudo ./install_redhat.sh  # RHEL/CentOS
+sudo ./install_debian_local.sh  # Debian/Ubuntu
+sudo ./install_redhat_local.sh  # RHEL/CentOS
 ```
 
 ## 🧩 模块架构
 
 ```text
 server_setup/
-├── install_debian.sh       # Debian系列主脚本
-├── install_redhat.sh       # RedHat系列主脚本
+├── install_debian.sh             # Debian系列主脚本
+├── install_redhat.sh             # RedHat系列主脚本
+├── install_debian_local.sh       # Debian系列本地脚本
+├── install_redhat_local.sh       # RedHat系列本地脚本
 └── modules/
     ├── debian/
     │   ├── 01_system_lang.sh
