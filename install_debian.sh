@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- 全局变量 ---
-GITHUB_REPO="https://github.com/6Leokk/server-setup/edit/main"
+GITHUB_REPO="https://github.com/6Leokk/server-setup/blob/main"
 MODULES_DIR="$GITHUB_REPO/modules/debian"
 
 # 模块配置（编号:文件名:消息ID）
