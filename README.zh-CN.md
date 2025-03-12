@@ -59,16 +59,25 @@ sudo ./install_redhat.sh  # RHEL/CentOS
 ## 🧩 模块架构
 
 ```text
-server-setup/
-├── install_debian.sh    # Debian系入口脚本
-├── install_redhat.sh    # RedHat系入口脚本
+server_setup/
+├── install_debian.sh       # Debian系列主脚本
+├── install_redhat.sh       # RedHat系列主脚本
 └── modules/
-    ├── debian/          # 专用模块
+    ├── debian/
     │   ├── 01_system_lang.sh
-    │   └── ...         # 其他模块
-    └── redhat/          # 专用模块
+    │   ├── 02_software_sources.sh
+    │   ├── 03_system_update.sh
+    │   ├── 04_fcitx_rime.sh
+    │   ├── 05_docker_setup.sh
+    │   └── 06_docker_mirror.sh
+    └── redhat/
         ├── 01_system_lang.sh
-        └── ...         # 其他模块
+        ├── 02_software_sources.sh
+        ├── 03_system_update.sh
+        ├── 04_fcitx_rime.sh
+        ├── 05_docker_setup.sh
+        └── 06_docker_mirror.sh
+
 ```
 
 ## 🔧 自定义配置
