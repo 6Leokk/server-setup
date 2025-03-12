@@ -35,10 +35,10 @@
 
 ```bash
 # Debian/Ubuntu
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/yourname/server-setup/main/install_debian.sh)"
-
+sudo bash <(curl -sSL https://raw.githubusercontent.com/6Leokk/server-setup/main/install_debian.sh)
 # RHEL/CentOS
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/yourname/server-setup/main/install_redhat.sh)"
+sudo bash <(curl -sSL https://raw.githubusercontent.com/6Leokk/server-setup/main/install_redhat.sh)
+
 ```
 
 ### 方法二：手动安装
